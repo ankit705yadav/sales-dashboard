@@ -8,6 +8,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 
 // Import icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -38,15 +39,30 @@ const Sidebar = () => {
         width: 280,
         height: "100vh",
         bgcolor: "white",
-        borderRight: "1px solid #E2E8F0",
+        // borderRight: "1px solid #E2E8F0",
         display: "flex",
         flexDirection: "column",
         p: 2,
       }}
     >
-      <Typography variant="h5" sx={{ p: 2, color: "primary.main" }}>
-        Dabang
-      </Typography>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          src="/dabangLogo.png"
+          alt="Dabang Logo"
+          width={50}
+          height={50}
+          priority // Add this if the logo is above the fold
+        />
+        <Typography variant="h5" sx={{ p: 2 }}>
+          Dabang
+        </Typography>
+      </div>
       <List sx={{ flexGrow: 1 }}>
         {menuItems.map((item, index) => (
           <ListItem key={item.text} disablePadding>
