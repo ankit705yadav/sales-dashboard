@@ -2,26 +2,19 @@ import { DashboardService } from './dashboard.service';
 export declare class DashboardController {
     private readonly dashboardService;
     constructor(dashboardService: DashboardService);
-    getMetrics(): {
-        id: number;
+    getMetrics(): Promise<{
         label: string;
-        value: string;
+        value: any;
         change: string;
-        changeType: string;
-    }[];
-    getRevenue(): {
-        labels: string[];
+    }[]>;
+    getRevenue(): Promise<{
+        labels: any[];
         datasets: {
             label: string;
             data: number[];
         }[];
-    };
-    getTopProducts(): {
-        id: number;
-        name: string;
-        popularity: number;
-        sales: number;
-    }[];
+    }>;
+    getTopProducts(): Promise<any[]>;
     getVisitorInsights(): {
         loyal: number[];
         new: number[];

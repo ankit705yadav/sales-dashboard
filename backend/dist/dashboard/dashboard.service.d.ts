@@ -1,24 +1,21 @@
+import { Repository } from 'typeorm';
+import { Sale } from './entities/sale.entity';
 export declare class DashboardService {
-    getMetrics(): {
-        id: number;
+    private salesRepository;
+    constructor(salesRepository: Repository<Sale>);
+    getMetrics(): Promise<{
         label: string;
-        value: string;
+        value: any;
         change: string;
-        changeType: string;
-    }[];
-    getRevenue(): {
-        labels: string[];
+    }[]>;
+    getRevenue(): Promise<{
+        labels: any[];
         datasets: {
             label: string;
             data: number[];
         }[];
-    };
-    getTopProducts(): {
-        id: number;
-        name: string;
-        popularity: number;
-        sales: number;
-    }[];
+    }>;
+    getTopProducts(): Promise<any[]>;
     getVisitorInsights(): {
         loyal: number[];
         new: number[];
