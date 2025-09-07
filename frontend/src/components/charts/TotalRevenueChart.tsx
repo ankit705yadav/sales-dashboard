@@ -25,7 +25,7 @@ const yAxisTickFormatter = (value: number) => {
   return `${value / 1000}k`;
 };
 
-const TotalRevenueChart = ({ data }: { data: any }) => {
+const TotalRevenueChart = ({ data }: { data: Record<string, any> }) => {
   // Format data for Recharts
   const chartData = data?.labels?.map((label: string, index: number) => ({
     name: label,

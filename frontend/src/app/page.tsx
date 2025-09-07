@@ -102,7 +102,9 @@ export default function DashboardPage() {
                 }}
               >
                 <Box>
-                  <Typography variant="h6">Today's Sales</Typography>
+                  <Typography variant="h6" sx={{ mb: 2 }}>
+                    Today&apos;s Sales
+                  </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Sales Summery
                   </Typography>

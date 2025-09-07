@@ -64,7 +64,7 @@ const Sidebar = () => {
         </Typography>
       </div>
       <List sx={{ flexGrow: 1 }}>
-        {menuItems.map((item, index) => (
+        {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton
               sx={{

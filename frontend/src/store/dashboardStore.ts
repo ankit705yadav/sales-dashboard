@@ -1,10 +1,8 @@
 import { create } from "zustand";
 import axios from "axios";
-import { useAuth } from "@clerk/nextjs";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
-// interfaces
 interface Metric {
   label: string;
   value: string;
@@ -19,13 +17,12 @@ interface TopProduct {
 
 interface DashboardState {
   metrics: Metric[];
-  revenueData: any;
-  visitorData: any;
-  satisfactionData: any;
+  revenueData: Record<string, any>;
+  visitorData: Record<string, any>;
+  satisfactionData: Record<string, any>;
   topProducts: TopProduct[];
   loading: boolean;
   error: string | null;
-  // fetchAllData: () => Promise<void>;
   fetchAllData: (getToken: () => Promise<string | null>) => Promise<void>;
 }
 

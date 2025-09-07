@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Image from "next/image";
 
 const SalesMapping = () => {
   return (
@@ -26,6 +27,13 @@ const SalesMapping = () => {
             alt="World Map"
             style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
           />
+          {/*<Image
+            src="https://via.placeholder.com/250x180/E0E0E0/5541D7?text=Map+Placeholder"
+            alt="World Map"
+            width={250}
+            height={180}
+            style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
+          />*/}
         </Box>
       </CardContent>
     </Card>

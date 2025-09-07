@@ -37,7 +37,7 @@ const legendItems = [
   { name: "Unique Customers", color: "#3CD856" },
 ];
 
-const VisitorInsightsChart = ({ data }: { data: any }) => {
+const VisitorInsightsChart = ({ data }: { data: Record<string, any> }) => {
   const chartData = months.map((month, index) => ({
     name: month,
     "Loyal Customers": data?.loyal?.[index],
