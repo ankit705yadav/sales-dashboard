@@ -3,6 +3,7 @@ import axios from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
+// interfaces
 interface Metric {
   label: string;
   value: string;
@@ -15,11 +16,32 @@ interface TopProduct {
   sales: number;
 }
 
+interface RevenueData {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+  }[];
+}
+
+interface VisitorData {
+  loyal: number[];
+  new: number[];
+  unique: number[];
+}
+
+interface SatisfactionData {
+  lastMonthTotal: number;
+  thisMonthTotal: number;
+  lastMonthData: number[];
+  thisMonthData: number[];
+}
+
 interface DashboardState {
   metrics: Metric[];
-  revenueData: Record<string, any>;
-  visitorData: Record<string, any>;
-  satisfactionData: Record<string, any>;
+  revenueData: RevenueData;
+  visitorData: VisitorData;
+  satisfactionData: SatisfactionData;
   topProducts: TopProduct[];
   loading: boolean;
   error: string | null;
@@ -28,9 +50,14 @@ interface DashboardState {
 
 export const useDashboardStore = create<DashboardState>((set) => ({
   metrics: [],
-  revenueData: {},
-  visitorData: {},
-  satisfactionData: {},
+  revenueData: { labels: [], datasets: [] },
+  visitorData: { loyal: [], new: [], unique: [] },
+  satisfactionData: {
+    lastMonthTotal: 0,
+    thisMonthTotal: 0,
+    lastMonthData: [],
+    thisMonthData: [],
+  },
   topProducts: [],
   loading: true,
   error: null,
@@ -38,12 +65,11 @@ export const useDashboardStore = create<DashboardState>((set) => ({
   fetchAllData: async (getToken) => {
     set({ loading: true, error: null });
     try {
-      const token = await getToken(); // Get the token from Clerk
+      const token = await getToken();
       if (!token) {
         throw new Error("User is not authenticated.");
       }
 
-      // Create an Axios instance with the auth header
       const apiClient = axios.create({
         baseURL: API_URL,
         headers: {
