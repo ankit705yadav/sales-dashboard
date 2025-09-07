@@ -19,7 +19,6 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import MessageIcon from "@mui/icons-material/Message";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import CodeIcon from "@mui/icons-material/Code";
 
 const menuItems = [
@@ -104,14 +103,25 @@ const Sidebar = () => {
             backgroundColor: "white",
           }}
         />
-        {/*import CodeIcon from '@mui/icons-material/Code';*/}
+
         <Typography variant="h6" color="white" fontSize={20}>
           Dabang Pro
         </Typography>
         <Typography variant="body2" sx={{ my: 1 }} fontSize={12} color="white">
           Get access to all features on tetumbas
         </Typography>
-        <Button variant="contained" color="inherit" colour="blue">
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "white",
+            color: "#5541D7",
+            borderRadius: "8px",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)",
+            padding: "8px 24px",
+            fontSize: "0.9rem",
+            fontWeight: "600",
+          }}
+        >
           Get Pro
         </Button>
       </Box>
