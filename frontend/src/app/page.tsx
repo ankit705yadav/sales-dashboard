@@ -10,6 +10,8 @@ import {
   CardContent,
 } from "@mui/material";
 
+import { useAuth } from "@clerk/nextjs";
+
 // Import Components
 import MetricCard from "@/components/MetricCard";
 import TotalRevenueChart from "@/components/charts/TotalRevenueChart";
@@ -29,6 +31,8 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import PeopleIcon from "@mui/icons-material/People";
 
 export default function DashboardPage() {
+  const { getToken } = useAuth(); // Get the getToken function from the hook
+
   const cardStyles = [
     { icon: <ShowChartIcon />, color: "#FFE2E5", iconColor: "#FA5A7D" },
     { icon: <DescriptionIcon />, color: "#FFF4DE", iconColor: "#FF947A" },
@@ -48,8 +52,9 @@ export default function DashboardPage() {
   } = useDashboardStore();
 
   useEffect(() => {
-    fetchAllData();
-  }, [fetchAllData]);
+    // Pass getToken to the fetchAllData action
+    fetchAllData(getToken);
+  }, [fetchAllData, getToken]);
 
   if (loading) {
     return (

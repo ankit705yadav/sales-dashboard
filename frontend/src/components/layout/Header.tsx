@@ -7,6 +7,9 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import LanguageIcon from "@mui/icons-material/Language";
 
+import { SignedIn, SignedOut, UserButton, SignInButton } from "@clerk/nextjs";
+import Button from "@mui/material/Button";
+
 const Header = () => {
   return (
     <Box
@@ -48,6 +51,15 @@ const Header = () => {
             </Typography>
           </Box>
         </Box>
+
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton mode="modal">
+            <Button variant="contained">Sign In</Button>
+          </SignInButton>
+        </SignedOut>
       </Box>
     </Box>
   );

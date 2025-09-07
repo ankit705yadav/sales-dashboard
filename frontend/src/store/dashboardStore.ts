@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import { useAuth } from "@clerk/nextjs";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
@@ -24,7 +25,8 @@ interface DashboardState {
   topProducts: TopProduct[];
   loading: boolean;
   error: string | null;
-  fetchAllData: () => Promise<void>;
+  // fetchAllData: () => Promise<void>;
+  fetchAllData: (getToken: () => Promise<string | null>) => Promise<void>;
 }
 
 export const useDashboardStore = create<DashboardState>((set) => ({
@@ -36,9 +38,22 @@ export const useDashboardStore = create<DashboardState>((set) => ({
   loading: true,
   error: null,
 
-  fetchAllData: async () => {
+  fetchAllData: async (getToken) => {
     set({ loading: true, error: null });
     try {
+      const token = await getToken(); // Get the token from Clerk
+      if (!token) {
+        throw new Error("User is not authenticated.");
+      }
+
+      // Create an Axios instance with the auth header
+      const apiClient = axios.create({
+        baseURL: API_URL,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       const [
         metricsRes,
         revenueRes,
@@ -46,11 +61,11 @@ export const useDashboardStore = create<DashboardState>((set) => ({
         satisfactionRes,
         productsRes,
       ] = await Promise.all([
-        axios.get(`${API_URL}/api/dashboard/metrics`),
-        axios.get(`${API_URL}/api/dashboard/revenue`),
-        axios.get(`${API_URL}/api/dashboard/visitor-insights`),
-        axios.get(`${API_URL}/api/dashboard/customer-satisfaction`),
-        axios.get(`${API_URL}/api/dashboard/top-products`),
+        apiClient.get("/api/dashboard/metrics"),
+        apiClient.get("/api/dashboard/revenue"),
+        apiClient.get("/api/dashboard/visitor-insights"),
+        apiClient.get("/api/dashboard/customer-satisfaction"),
+        apiClient.get("/api/dashboard/top-products"),
       ]);
 
       set({

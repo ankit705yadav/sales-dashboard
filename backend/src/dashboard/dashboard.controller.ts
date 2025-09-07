@@ -1,9 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 import { DashboardService } from './dashboard.service';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
+import { ClerkAuthGuard } from '../auth/clerk-auth.guard';
+
 @ApiTags('Dashboard')
 @Controller('api/dashboard')
+@UseGuards(ClerkAuthGuard)
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}
 

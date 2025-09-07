@@ -13,12 +13,12 @@ export class DashboardService {
 
   async getMetrics() {
     const today = startOfDay(new Date());
-    const yesterday = startOfDay(subDays(today, 1));
 
     const queryBuilder = this.salesRepository.createQueryBuilder('sale');
 
     const todayMetrics = await queryBuilder
       .select('SUM(sale.amount)', 'totalSales')
+      // This is the corrected query chain 👇
       .addSelect('COUNT(sale.id)', 'totalOrders')
       .addSelect('COUNT(DISTINCT sale.productName)', 'productsSold')
       .addSelect(
@@ -28,9 +28,7 @@ export class DashboardService {
       .where('sale.date >= :today', { today })
       .getRawOne();
 
-    // You would add similar logic to get yesterday's metrics to calculate the change %
     // For simplicity, we'll return static change values for now.
-
     return [
       {
         label: 'Total Sales',
@@ -94,11 +92,10 @@ export class DashboardService {
       .select('sale.productName', 'name')
       .addSelect('COUNT(sale.id)', 'salesCount')
       .groupBy('sale.productName')
-      .orderBy('salesCount', 'DESC')
+      .orderBy('COUNT(sale.id)', 'DESC')
       .limit(4)
       .getRawMany();
 
-    // For popularity, you'd have a more complex calculation. We'll use random values for now.
     return topProducts.map((p) => ({
       ...p,
       popularity: Math.floor(Math.random() * 50) + 20,

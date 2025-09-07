@@ -5,6 +5,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Sidebar from "@/components/layout/Sidebar";
 import Header from "@/components/layout/Header";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Dabang Dashboard",
@@ -17,22 +25,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Box sx={{ display: "flex" }}>
-            <Sidebar />
-            <Box
-              component="main"
-              sx={{ flexGrow: 1, p: 3, backgroundColor: "#F4F7FE" }}
-            >
-              <Header />
-              {children}
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Box sx={{ display: "flex" }}>
+              <Sidebar />
+              <Box
+                component="main"
+                sx={{ flexGrow: 1, p: 3, backgroundColor: "#F4F7FE" }}
+              >
+                <Header />
+                {children}
+              </Box>
             </Box>
-          </Box>
-        </ThemeProvider>
-      </body>
-    </html>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
