@@ -8,6 +8,8 @@ A complete, full-stack sales dashboard built with Next.js, NestJS, and PostgreSQ
 * **Frontend (Vercel):** [https://sales-dashboard-ten-nu.vercel.app/](https://sales-dashboard-ten-nu.vercel.app/)
 * **Backend API Docs (Render):** [https://sales-dashboard-backend-42g7.onrender.com/api-docs#/](https://sales-dashboard-backend-42g7.onrender.com/api-docs#/)
 
+<img src="https://github.com/ankit705yadav/sales-dashboard/blob/main/frontend/screen-shots/dashboard.png?raw=true" alt="sales dashboard" />
+
 ---
 ## 🚀 Features
 * **Responsive UI:** Pixel-perfect implementation of the Figma design, fully responsive for various screen sizes.
