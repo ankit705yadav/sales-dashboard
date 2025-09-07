@@ -23,12 +23,16 @@ import SalesMapping from "@/components/SalesMapping";
 import VolumeServiceLevelChart from "@/components/charts/VolumeServiceLevelChart";
 
 import Button from "@mui/material/Button";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
+import UploadIcon from "@mui/icons-material/Upload";
 
+// import ShowChartIcon from "@mui/icons-material/ShowChart";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
+// import DescriptionIcon from "@mui/icons-material/Description";
 import DescriptionIcon from "@mui/icons-material/Description";
+// import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import PeopleIcon from "@mui/icons-material/People";
+// import PeopleAltIcon from "@mui/icons-material/People";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 export default function DashboardPage() {
   const { getToken } = useAuth(); // Get the getToken function from the hook
@@ -37,7 +41,7 @@ export default function DashboardPage() {
     { icon: <ShowChartIcon />, color: "#FFE2E5", iconColor: "#FA5A7D" },
     { icon: <DescriptionIcon />, color: "#FFF4DE", iconColor: "#FF947A" },
     { icon: <LocalOfferIcon />, color: "#DCFCE7", iconColor: "#3CD856" },
-    { icon: <PeopleIcon />, color: "#F3E8FF", iconColor: "#BF83FF" },
+    { icon: <PeopleAltIcon />, color: "#F3E8FF", iconColor: "#BF83FF" },
   ];
 
   const {
@@ -90,7 +94,7 @@ export default function DashboardPage() {
     <Box>
       <Grid container spacing={3}>
         {/* Today's Sales - Metrics */}
-        <Grid item xs={12}>
+        <Grid>
           <Card>
             <CardContent>
               <Box
@@ -111,7 +115,7 @@ export default function DashboardPage() {
                 </Box>
                 <Button
                   variant="outlined"
-                  startIcon={<FileUploadIcon />}
+                  startIcon={<UploadIcon />}
                   sx={{
                     textTransform: "none",
                     color: "text.secondary",
@@ -123,7 +127,7 @@ export default function DashboardPage() {
               </Box>
               <Grid container spacing={3}>
                 {metrics.map((metric, index) => (
-                  <Grid item xs={12} sm={6} md={3} key={index}>
+                  <Grid key={index}>
                     <MetricCard
                       title={metric.label}
                       value={metric.value}
@@ -140,37 +144,37 @@ export default function DashboardPage() {
         </Grid>
 
         {/* Visitor Insights */}
-        <Grid item xs={12}>
+        <Grid>
           <VisitorInsightsChart data={visitorData} />
         </Grid>
 
         {/* Total Revenue & Customer Satisfaction & Target vs Reality */}
-        <Grid item xs={12} lg={7}>
+        <Grid>
           <TotalRevenueChart data={revenueData} />
         </Grid>
 
         {/*Customer satisfaction data*/}
-        <Grid item xs={12} lg={5}>
+        <Grid>
           <Grid container spacing={3}>
-            <Grid item xs={12}>
+            <Grid>
               <CustomerSatisfactionChart data={satisfactionData} />
             </Grid>
-            <Grid item xs={12}>
+            <Grid>
               <TargetVsRealityChart />
             </Grid>
           </Grid>
         </Grid>
 
         {/* Top Products */}
-        <Grid item xs={12}>
+        <Grid>
           <TopProductsTable products={topProducts} />
         </Grid>
 
         {/* Sales Mapping & Volume vs Service Level */}
-        <Grid item xs={12} md={6}>
+        <Grid>
           <SalesMapping />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid>
           <VolumeServiceLevelChart />
         </Grid>
       </Grid>

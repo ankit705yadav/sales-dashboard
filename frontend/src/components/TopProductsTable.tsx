@@ -10,13 +10,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import LinearProgress from "@mui/material/LinearProgress";
 import Box from "@mui/material/Box";
+import { TopProduct } from "@/types"; // Import the shared type
 
-interface TopProduct {
-  id: number;
-  name: string;
-  popularity: number;
-  sales: number;
-}
+// interface TopProduct {
+//   id: number;
+//   name: string;
+//   popularity: number;
+//   sales: number;
+// }
 
 const TopProductsTable = ({ products }: { products: TopProduct[] }) => {
   return (

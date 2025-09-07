@@ -1,41 +1,48 @@
 import { create } from "zustand";
 import axios from "axios";
+import type {
+  Metric,
+  TopProduct,
+  RevenueData,
+  VisitorData,
+  SatisfactionData,
+} from "@/types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 // interfaces
-interface Metric {
-  label: string;
-  value: string;
-  change: string;
-}
+// interface Metric {
+//   label: string;
+//   value: string;
+//   change: string;
+// }
 
-interface TopProduct {
-  name: string;
-  popularity: number;
-  sales: number;
-}
+// interface TopProduct {
+//   name: string;
+//   popularity: number;
+//   sales: number;
+// }
 
-interface RevenueData {
-  labels: string[];
-  datasets: {
-    label: string;
-    data: number[];
-  }[];
-}
+// interface RevenueData {
+//   labels: string[];
+//   datasets: {
+//     label: string;
+//     data: number[];
+//   }[];
+// }
 
-interface VisitorData {
-  loyal: number[];
-  new: number[];
-  unique: number[];
-}
+// interface VisitorData {
+//   loyal: number[];
+//   new: number[];
+//   unique: number[];
+// }
 
-interface SatisfactionData {
-  lastMonthTotal: number;
-  thisMonthTotal: number;
-  lastMonthData: number[];
-  thisMonthData: number[];
-}
+// interface SatisfactionData {
+//   lastMonthTotal: number;
+//   thisMonthTotal: number;
+//   lastMonthData: number[];
+//   thisMonthData: number[];
+// }
 
 interface DashboardState {
   metrics: Metric[];
