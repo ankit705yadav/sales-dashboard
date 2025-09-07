@@ -5,8 +5,8 @@ A complete, full-stack sales dashboard built with Next.js, NestJS, and PostgreSQ
 
 
 ## ✨ Live Demo
-* **Frontend (Vercel):** [https://sales-dashboard-ten-nu.vercel.app/](https://https://sales-dashboard-ten-nu.vercel.app/)
-* **Backend API Docs (Render):** [https://sales-dashboard-backend-42g7.onrender.com/api-docs#/](https://https://sales-dashboard-backend-42g7.onrender.com/api-docs#/)
+* **Frontend (Vercel):** [https://sales-dashboard-ten-nu.vercel.app/](https://sales-dashboard-ten-nu.vercel.app/)
+* **Backend API Docs (Render):** [https://sales-dashboard-backend-42g7.onrender.com/api-docs#/](https://sales-dashboard-backend-42g7.onrender.com/api-docs#/)
 
 ---
 ## 🚀 Features
