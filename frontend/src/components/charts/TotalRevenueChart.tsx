@@ -14,6 +14,15 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+// interface
+interface RevenueData {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+  }[];
+}
+
 const legendItems = [
   { name: "Online Sales", color: "#0088FE" },
   { name: "Offline Sales", color: "#00C49F" },
@@ -25,7 +34,7 @@ const yAxisTickFormatter = (value: number) => {
   return `${value / 1000}k`;
 };
 
-const TotalRevenueChart = ({ data }: { data: Record<string, any> }) => {
+const TotalRevenueChart = ({ data }: { data: RevenueData }) => {
   // Format data for Recharts
   const chartData = data?.labels?.map((label: string, index: number) => ({
     name: label,

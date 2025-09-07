@@ -16,6 +16,13 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SquareIcon from "@mui/icons-material/Square";
 
+// interface
+interface VisitorData {
+  loyal: number[];
+  new: number[];
+  unique: number[];
+}
+
 const months = [
   "Jan",
   "Feb",
@@ -37,7 +44,7 @@ const legendItems = [
   { name: "Unique Customers", color: "#3CD856" },
 ];
 
-const VisitorInsightsChart = ({ data }: { data: Record<string, any> }) => {
+const VisitorInsightsChart = ({ data }: { data: VisitorData }) => {
   const chartData = months.map((month, index) => ({
     name: month,
     "Loyal Customers": data?.loyal?.[index],

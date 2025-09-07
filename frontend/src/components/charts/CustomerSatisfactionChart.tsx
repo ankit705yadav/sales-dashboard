@@ -14,7 +14,15 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 
-const CustomerSatisfactionChart = ({ data }: { data: Record<string, any> }) => {
+// interface
+interface SatisfactionData {
+  lastMonthTotal: number;
+  thisMonthTotal: number;
+  lastMonthData: number[];
+  thisMonthData: number[];
+}
+
+const CustomerSatisfactionChart = ({ data }: { data: SatisfactionData }) => {
   const chartData = data?.lastMonthData?.map(
     (_value: number, index: number) => ({
       name: `Day ${index + 1}`,

@@ -37,7 +37,7 @@ const TopProductsTable = ({ products }: { products: TopProduct[] }) => {
             </TableHead>
             <TableBody>
               {products.map((product, index) => (
-                <TableRow key={product.id} key={index}>
+                <TableRow key={product.id}>
                   {/*<TableCell>{`0${product.id}`}</TableCell>*/}
                   <TableCell>{`0${index + 1}`}</TableCell>
                   <TableCell>{product.name}</TableCell>
