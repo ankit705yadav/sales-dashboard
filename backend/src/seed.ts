@@ -26,7 +26,8 @@ async function bootstrap() {
     sales.push({
       productName: faker.helpers.arrayElement(productNames),
       amount: faker.number.float({ min: 10, max: 500, fractionDigits: 2 }),
-      date: faker.date.past({ years: 1 }),
+      // date: faker.date.past({ years: 1 }),
+      date: faker.date.recent({ days: 30 }),
       isOffline: faker.datatype.boolean(),
       isNewCustomer: faker.datatype.boolean({ probability: 0.2 }), // 20% chance of being a new customer
     });

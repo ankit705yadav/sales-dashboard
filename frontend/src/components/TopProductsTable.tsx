@@ -36,9 +36,10 @@ const TopProductsTable = ({ products }: { products: TopProduct[] }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {products.map((product) => (
+              {products.map((product, index) => (
                 <TableRow key={product.id}>
-                  <TableCell>{`0${product.id}`}</TableCell>
+                  {/*<TableCell>{`0${product.id}`}</TableCell>*/}
+                  <TableCell>{`0${index + 1}`}</TableCell>
                   <TableCell>{product.name}</TableCell>
                   <TableCell>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
