@@ -17,23 +17,21 @@ const SalesMapping = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: 200,
             bgcolor: "#F0F4F8",
             borderRadius: 2,
+            height: 270,
           }}
         >
-          <img
-            src="https://via.placeholder.com/250x180/E0E0E0/5541D7?text=Map+Placeholder"
-            alt="World Map"
-            style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
+          <Image
+            src="/world.png"
+            alt="worldMap Logo"
+            // width={40}
+            // height={40}
+            // priority
+            width={400}
+            height={100}
+            style={{ maxWidth: "100%", height: "100%", borderRadius: "4px" }}
           />
-          {/*<Image
-            src="https://via.placeholder.com/250x180/E0E0E0/5541D7?text=Map+Placeholder"
-            alt="World Map"
-            width={250}
-            height={180}
-            style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
-          />*/}
         </Box>
       </CardContent>
     </Card>

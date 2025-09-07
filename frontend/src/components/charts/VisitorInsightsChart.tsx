@@ -56,7 +56,7 @@ const VisitorInsightsChart = ({ data }: { data: VisitorData }) => {
     <Card>
       <CardContent>
         <Typography variant="h6">Visitor Insights</Typography>
-        <Box sx={{ height: 165, width: 600, mt: 2 }}>
+        <Box sx={{ height: 180, width: 600, mt: 2 }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} />

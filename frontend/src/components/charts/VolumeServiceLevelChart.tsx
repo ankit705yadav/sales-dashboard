@@ -35,7 +35,7 @@ const VolumeServiceLevelChart = () => {
     <Card>
       <CardContent>
         <Typography variant="h6">Volume vs Service Level</Typography>
-        <Box sx={{ height: 200, mt: 2 }}>
+        <Box sx={{ width: 300, height: 195, mt: 2 }}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}

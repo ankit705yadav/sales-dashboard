@@ -27,7 +27,7 @@ const TopProductsTable = ({ products }: { products: TopProduct[] }) => {
           Top Products
         </Typography>
         <TableContainer>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 600 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>#</TableCell>
