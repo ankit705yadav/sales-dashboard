@@ -53,7 +53,7 @@ Follow these instructions to set up the project on your local machine.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/ankit705yadav/sales-dashboard](https://github.com/ankit705yadav/sales-dashboard)
+git clone https://github.com/ankit705yadav/sales-dashboard
 cd sales-dashboard
 ```
 
@@ -73,7 +73,7 @@ cd sales-dashboard
 4.  Fill in your `.env` file
 5.  Populate the database with sample data:
     ```bash
-    npm run seed
+    npm run seed #comment-out "ssl" from backend/src/app.module.ts when using local-DB
     ```
 6.  Start the backend server:
     ```bash

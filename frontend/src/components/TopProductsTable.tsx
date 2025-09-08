@@ -10,14 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import LinearProgress from "@mui/material/LinearProgress";
 import Box from "@mui/material/Box";
-import { TopProduct } from "@/types"; // Import the shared type
-
-// interface TopProduct {
-//   id: number;
-//   name: string;
-//   popularity: number;
-//   sales: number;
-// }
+import { TopProduct } from "@/types";
 
 const TopProductsTable = ({ products }: { products: TopProduct[] }) => {
   return (
@@ -38,8 +31,7 @@ const TopProductsTable = ({ products }: { products: TopProduct[] }) => {
             </TableHead>
             <TableBody>
               {products.map((product, index) => (
-                <TableRow key={product.id}>
-                  {/*<TableCell>{`0${product.id}`}</TableCell>*/}
+                <TableRow key={index}>
                   <TableCell>{`0${index + 1}`}</TableCell>
                   <TableCell>{product.name}</TableCell>
                   <TableCell>
